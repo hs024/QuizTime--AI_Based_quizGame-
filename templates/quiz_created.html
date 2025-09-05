@@ -1,0 +1,23 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'quiz.css' %}">
+
+<div class="quiz-container">
+    <h1>{{ quiz.language }} Quiz</h1>
+
+    {% for question, options in quiz.questions.items %}
+        <div class="question-block">
+            <h3>{{ forloop.counter }}. {{ question }}</h3>
+            <ul class="options">
+                {% for option in options %}
+                    <li>
+                        <span class="opt-text">{{ option.0 }}</span>
+                        <span class="opt-exp">{{ option.1 }}</span>
+                        {% if option.2 %}
+                            <span class="correct">(Correct)</span>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</div>

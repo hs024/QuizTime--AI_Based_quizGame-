@@ -1,0 +1,14 @@
+<div class="history-section">
+  <h3>Your Quiz History</h3>
+  {% if history %}
+    {% for h in history %}
+      <div class="history-item">
+        <strong>{{ h.detail.language }}</strong><br>
+        Score: {{ h.score }} / {{ h.detail.questions|length }}<br>
+        <small>{{ h.date_taken|date:"Y-m-d H:i" }}</small>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>No quiz history yet.</p>
+  {% endif %}
+</div>

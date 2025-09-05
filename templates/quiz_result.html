@@ -1,0 +1,32 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'quiz.css' %}">
+
+<div class="quiz-result">
+  <h2>{{ quiz.language }} Quiz Result</h2>
+  <p>Your Score: {{ score }} / {{ total }}</p>
+
+  {% for q_text, res in results.items %}
+    <div class="result-block">
+      <h3>{{ forloop.counter }}. {{ q_text }}</h3>
+      <ul>
+        {% for opt in res.options %}
+  <li
+    {% if forloop.counter0 == res.correct %} style="color: green;"{% endif %}
+    {% if forloop.counter0 == res.selected and not res.is_correct %} style="color: red;"{% endif %}
+  >
+    {{ opt.0 }} 
+    
+    {% if not opt.1 %}
+      <span> - No Explantion</span>
+    {% else %}
+          <span> - {{ opt.1 }}</span>  {# always show explanation for correct answer #}
+
+    {% endif %}
+      
+  </li>
+{% endfor %}
+
+      </ul>
+    </div>
+  {% endfor %}
+</div>

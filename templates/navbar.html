@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'nav.css' %}">
+{% block navbar %}
+<ul class="navbar">
+    <li><a href="{% url 'home' %}">Home</a></li>
+    {% if user.is_authenticated %}
+       <li>
+  <label for="lang-select">Language:</label>
+  <select id="lang-select" onchange="if(this.value) window.location.href=this.value;">
+    <option value="">-- Select --</option>
+    <option value="{% url 'take_quiz' 'PYTHON' %}">Python</option>
+    <option value="{% url 'take_quiz' 'JAVASCRIPT' %}">JavaScript</option>
+    <option value="{% url 'take_quiz' 'C' %}">C</option>
+  </select>
+</li>
+
+        <li>Welcome {{ user.username }}</li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+    {% else %}
+        <li><a href="{% url 'login' %}">Login</a></li>
+        <li><a href="{% url 'register' %}">Register</a></li>
+    {% endif %}
+</ul>
+{% endblock navbar %}

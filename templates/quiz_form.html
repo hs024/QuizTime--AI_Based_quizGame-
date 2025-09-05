@@ -1,0 +1,34 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'quiz_form.css' %}">
+
+<div class="form-container">
+    <h1>Create Quiz</h1>
+    <form method="post" >
+        {% csrf_token %}
+        <label for="language">Select Language</label>
+        <select name="language" id="language" required>
+            <option value="PYTHON">Python</option>
+            <option value="JAVASCRIPT">JavaScript</option>
+        </select>
+
+        {% for i in range10 %}
+        <div class="question-block">
+            <h3>Question {{ i }}</h3>
+            <input type="text" name="question{{ i }}" placeholder="Enter question text" required>
+
+            {% for j in range4 %}
+            <div class="option-block">
+                <input type="text" name="q{{ i }}_opt{{ j }}" placeholder="Option {{ j }}" required>
+                <input type="text" name="q{{ i }}_exp{{ j }}" placeholder="Explanation {{ j }}" >
+                <label>
+                    <input type="checkbox" name="q{{ i }}_correct" value="{{ j }}">
+                    Correct
+                </label>
+            </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+        <button type="submit">Save Quiz</button>
+    </form>
+</div>
