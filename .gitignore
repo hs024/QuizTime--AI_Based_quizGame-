@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+ENV/
+.venv/
+
+# Django
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+static_root/
+*.sqlite3-journal
+
+# Environment variables
+.env
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# PyCharm
+.idea/
+
+# Node (if you ever add frontend tools)
+node_modules/
+dist/
+build/
+
+# JetBrains
+*.iml
+
+# Coverage
+.coverage
+htmlcov/

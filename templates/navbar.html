@@ -16,6 +16,32 @@
 
         <li>Welcome {{ user.username }}</li>
         <li><a href="{% url 'logout' %}">Logout</a></li>
+        <li>
+  <form method="get" action="">
+    <select id="lang" name="language">
+      <option value="Python">Python</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="C">C</option>
+    </select>
+
+    <select id="lvl" name="level">
+      <option value="beginner" selected>Beginner</option>
+      <option value="intermediate">Intermediate</option>
+      <option value="advanced">Advanced</option>
+    </select>
+
+    <button type="button" onclick="
+  const lang = document.getElementById('lang').value;
+  const lvl = document.getElementById('lvl').value;
+  window.location.href = `{% url 'ai_quiz' 'LANG' 'LEVEL' %}`
+    .replace('LANG', lang)
+    .replace('LEVEL', lvl);
+">AI Based Quiz</button>
+
+  </form>
+</li>
+
+
     {% else %}
         <li><a href="{% url 'login' %}">Login</a></li>
         <li><a href="{% url 'register' %}">Register</a></li>

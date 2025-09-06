@@ -2,7 +2,7 @@ from django.shortcuts import render
 from .models import Quiz
 
 def create_quiz(request):
-    n = 2 # number of questions
+    n = 5 # number of questions
     if request.method == "POST":
         language = request.POST.get("language")
         questions = {}
