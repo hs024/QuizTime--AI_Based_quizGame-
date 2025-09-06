@@ -56,5 +56,6 @@ Quiz results highlight correct answers in green and wrong answers in red.
 
 History section shows last 20 quizzes in a sidebar.
 
+---
 
 ### Made by Himanshu (hs024)
